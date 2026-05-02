@@ -3,6 +3,7 @@ package core;
 public class Vetor {
 
 	private double[] componentes = new double[3];
+	
 
 	public Vetor(double x, double y, double z) {
 		componentes[0] = x;
@@ -20,9 +21,35 @@ public class Vetor {
 		componentes[2] = Math.sin(radianosZ);
 	}
 
+
 	public double getX() { return componentes[0]; }
 	public double getY() { return componentes[1]; }
 	public double getZ() { return componentes[2]; }
+
+	public double modulo() {
+		return Math.sqrt(
+			componentes[0]*componentes[0] + 
+			componentes[1]*componentes[1] + 
+			componentes[2]*componentes[2]
+		);
+	}
+
+	public double produtoEscalar(double escalar) {
+		return componentes[0]*escalar + componentes[1]*escalar + componentes[2]*escalar;
+	}
+
+	public double[] componentes() {
+		return componentes.clone();
+	}
+
+	public Vetor produtoVetorial(Vetor vetor) {
+		return new Vetor(
+			componentes[1]*vetor.getZ() - componentes[2]*vetor.getY(), 
+			componentes[2]*vetor.getX() - componentes[0]*vetor.getZ(), 
+			componentes[0]*vetor.getY() - componentes[1]*vetor.getX()
+		);
+	}
+
 
 	public void somarVetor(Vetor vetor) {
 		componentes[0] += vetor.getX();
@@ -52,30 +79,6 @@ public class Vetor {
 			componentes[0] = componentes[0] * Math.cos(radianos) - componentes[1] * Math.sin(radianos);
 			componentes[1] = componentes[0] * Math.sin(radianos) + componentes[1] * Math.cos(radianos);
 		}
-	}
-
-	public double modulo() {
-		return Math.sqrt(
-			componentes[0]*componentes[0] + 
-			componentes[1]*componentes[1] + 
-			componentes[2]*componentes[2]
-		);
-	}
-
-	public double produtoEscalar(double escalar) {
-		return componentes[0]*escalar + componentes[1]*escalar + componentes[2]*escalar;
-	}
-
-	public double[] componentes() {
-		return componentes.clone();
-	}
-
-	public Vetor produtoVetorial(Vetor vetor) {
-		return new Vetor(
-			componentes[1]*vetor.getZ() - componentes[2]*vetor.getY(), 
-			componentes[2]*vetor.getX() - componentes[0]*vetor.getZ(), 
-			componentes[0]*vetor.getY() - componentes[1]*vetor.getX()
-		);
 	}
 
 }

@@ -3,10 +3,12 @@ package core;
 public class Ponto {
 
 	private double[] coordenadas = new double[3];
+	
 
 	public Ponto(double x, double y, double z) {
 		reposicionar(x, y, z);
 	}
+
 
 	public double getX() { return coordenadas[0]; }
 	public double getY() { return coordenadas[1]; }
@@ -15,6 +17,7 @@ public class Ponto {
 	public double[] coordenadas() {
 		return coordenadas.clone();
 	}
+
 
 	public void reposicionar(double x, double y, double z) {
 		coordenadas[0] = x;
