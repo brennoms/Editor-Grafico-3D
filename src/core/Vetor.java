@@ -81,4 +81,9 @@ public class Vetor {
 		}
 	}
 
+
+	public String toString() {
+		return String.format("Vetor( %.2f , %.2f , %.2f )", componentes[0], componentes[1], componentes[2]);
+	} 
+
 }
