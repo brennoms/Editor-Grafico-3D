@@ -14,6 +14,14 @@ public class Ponto {
 	public double getY() { return coordenadas[1]; }
 	public double getZ() { return coordenadas[2]; }
 
+	public double distanciaEntre(Ponto ponto) {
+		return Math.sqrt(
+			ponto.getX() * coordenadas[0] + 
+			ponto.getY() * coordenadas[1] + 
+			ponto.getZ() * coordenadas[2]
+		);
+	}
+
 	public double[] coordenadas() {
 		return coordenadas.clone();
 	}
