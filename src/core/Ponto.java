@@ -12,8 +12,8 @@ public class Ponto {
 	public double getY() { return coordenadas[1]; }
 	public double getZ() { return coordenadas[2]; }
 
-	public double[] getCoordenadas() {
-		return coordenadas;
+	public double[] coordenadas() {
+		return coordenadas.clone();
 	}
 
 	public void reposicionar(double x, double y, double z) {
