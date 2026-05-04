@@ -8,7 +8,7 @@ public class Main {
 
 		Vetor vetor = new Vetor(0, 1, 0);
 		Raio raio = new Raio(0, 0, 0, vetor);
-		Ponto ponto = new Ponto(0, -257, 0);
+		Ponto ponto = new Ponto(0, 257, 0);
 
 		System.out.println(vetor);
 		System.out.println(raio);

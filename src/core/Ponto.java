@@ -43,12 +43,12 @@ public class Ponto {
     }
 
     public Vetor subtrair(Ponto p) {
-        return new Vetor(
-            p.getX() - coordenadas[0],
-            p.getY() - coordenadas[1],
-            p.getZ() - coordenadas[2]
-        );
-    }
+	    return new Vetor(
+	        coordenadas[0] - p.getX(),
+	        coordenadas[1] - p.getY(),
+	        coordenadas[2] - p.getZ()
+	    );
+	}
 
     public double[] coordenadas() {
         return coordenadas.clone();

@@ -9,8 +9,8 @@ public class Raio {
 		this.pontoInicial = pontoInicial;
 		this.vetor = vetor;
 	}
-	public Raio(double x0, double y0, double z0, Vetor vetor) {
-		this.pontoInicial = new Ponto(x0, y0, z0);
+	public Raio(double x, double y, double z, Vetor vetor) {
+		this.pontoInicial = new Ponto(x, y, z);
 		this.vetor = vetor;
 	}
 
@@ -20,8 +20,20 @@ public class Raio {
     // =========================
 
 
-	public boolean intercepta(Ponto ponto) {
-		return ponto.subtrair(pontoInicial).isParalelo(vetor);
+	public boolean intercepta(Ponto p) {
+    	Vetor AP = p.subtrair(pontoInicial);
+
+	    if (!AP.isParalelo(vetor)) {
+	        return false;
+	    }
+
+	    double t = AP.produtoEscalar(vetor) / vetor.produtoEscalar(vetor);
+
+	    return t >= 0;
+	}
+
+	public Ponto pontoEm(double t) {
+    	return pontoInicial.somar(vetor.multiplicar(t));
 	}
 
 	@Override
