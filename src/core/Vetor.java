@@ -7,8 +7,8 @@ public class Vetor {
 
 	public Vetor(double x, double y, double z) {
 		componentes[0] = x;
-		componentes[1] = x;
-		componentes[2] = x;
+		componentes[1] = y;
+		componentes[2] = z;
 	}
 	public Vetor(Ponto pontoInicial, Ponto pontoFinal) {
 		componentes[0] = pontoFinal.getX() - pontoInicial.getX();
