@@ -20,7 +20,7 @@ public class Raio {
     // =========================
 
 
-	public boolean intercepta(Ponto p) {
+	public boolean intersepta(Ponto p) {
     	Vetor AP = p.subtrair(pontoInicial);
 
 	    if (!AP.isParalelo(vetor)) {
@@ -30,6 +30,43 @@ public class Raio {
 	    double t = AP.produtoEscalar(vetor) / vetor.produtoEscalar(vetor);
 
 	    return t >= 0;
+	}
+
+	public boolean intersepta(Triangulo triangulo) {
+	    final double EPS = 1e-9;
+
+	    Ponto origem = pontoInicial;
+	    Vetor direcao = vetor;
+
+	    Ponto verticeA = triangulo.getA();
+	    Vetor arestaAB = triangulo.getAB();
+	    Vetor arestaAC = triangulo.getAC();
+
+	    // Vetor perpendicular entre a direção do raio e a aresta AC
+	    Vetor perpendicular = direcao.produtoVetorial(arestaAC);
+
+	    double determinante = arestaAB.produtoEscalar(perpendicular);
+
+	    // Raio paralelo ao triângulo
+	    if (Math.abs(determinante) < EPS) return false;
+
+	    // Vetor da origem do raio até o vértice A
+	    Vetor origemParaA = origem.subtrair(verticeA);
+
+	    double u = origemParaA.produtoEscalar(perpendicular) / determinante;
+	    if (u < -EPS || u > 1.0 + EPS) return false;
+
+	    // Segundo vetor perpendicular
+	    Vetor perpendicular2 = origemParaA.produtoVetorial(arestaAB);
+
+	    double v = direcao.produtoEscalar(perpendicular2) / determinante;
+	    if (v < -EPS || u + v > 1.0 + EPS) return false;
+
+	    // distancia do raio até o triangulo
+	    double t = arestaAC.produtoEscalar(perpendicular2) / determinante;
+
+	    // Interseção válida só se estiver na frente do raio
+	    return t > EPS;
 	}
 
 	public Ponto pontoEm(double t) {
