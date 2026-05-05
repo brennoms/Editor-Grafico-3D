@@ -6,15 +6,18 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		Vetor vetor = new Vetor(0, 1, 0);
-		Raio raio = new Raio(0, 0, 0, vetor);
-		Ponto ponto = new Ponto(0, 257, 0);
+		Raio raio = new Raio(0, 0, -1, new Vetor(0, 0, 1));
+		System.out.println(raio + "\n");
 
-		System.out.println(vetor);
-		System.out.println(raio);
+		Ponto ponto = new Ponto(0, 0, 5);
 		System.out.println(ponto);
+		System.out.println("P(t)" + (raio.intersepta(ponto) ? " ":" não ") + "intersepta" + "\n");
 
-		System.out.println(raio.intercepta(ponto));
+
+		Triangulo triangulo = new Triangulo(new Ponto(-5, 0, 0), new Vetor(10, 10, 0), new Vetor(10, -10, 0));
+		System.out.println(triangulo);
+		System.out.println("P(t)" + (raio.intersepta(triangulo) ? " ":" não ") + "intersepta" + "\n");
+
 	}
 
 }
