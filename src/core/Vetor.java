@@ -70,10 +70,15 @@ public class Vetor {
 
     public boolean isParalelo(Vetor v) {
     	Vetor vProduto = this.produtoVetorial(v);
-    	double epsilon = 1e-9;
-    	return Math.abs(vProduto.getX()) < epsilon &&
-		       Math.abs(vProduto.getY()) < epsilon &&
-		       Math.abs(vProduto.getZ()) < epsilon;
+    	double EPS = 1e-9;
+    	return Math.abs(vProduto.getX()) < EPS &&
+		       Math.abs(vProduto.getY()) < EPS &&
+		       Math.abs(vProduto.getZ()) < EPS;
+    }
+
+    public boolean isOrtogonal(Vetor v) {
+        final double EPS = 1e-9;
+        return Math.abs(this.produtoEscalar(v)) < EPS;
     }
 
     public Vetor somar(Vetor v) {
