@@ -24,6 +24,14 @@ public class Vetor {
         };
     }
 
+    public Vetor(Vetor v) {
+        this.componentes = new double[]{
+            v.getX(),
+            v.getY(),
+            v.getZ()
+        };
+    }
+
     public double getX() { return componentes[0]; }
     public double getY() { return componentes[1]; }
     public double getZ() { return componentes[2]; }

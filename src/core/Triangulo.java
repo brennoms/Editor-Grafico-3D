@@ -27,6 +27,7 @@ public class Triangulo {
     // =========================
 
     public boolean pontoNoTriangulo(Ponto P) {
+    	// usa coordenadas baricêntricas
 	    final double EPS = 1e-9;
 
 	    Vetor AP = P.subtrair(A);
@@ -47,28 +48,32 @@ public class Triangulo {
 	    return (u >= -EPS) && (v >= -EPS) && (u + v <= 1 + EPS);
 	}
 
-	public Ponto getA() {
+	public Vetor ortogonal() {
+		return AB.produtoVetorial(AC);
+	}
+
+	priate Ponto getA() {
 		return A;
 	}
 
-    public Ponto getB() {
+    priate Ponto getB() {
     	return A.somar(AB);
     }
 
-    public Ponto getC() {
+    priate Ponto getC() {
     	return A.somar(AC);
     }
 
-    public Vetor getAB() {
-    	return AB;
+    priate Vetor getAB() {
+    	return new Vetor(AB);
     }
 
-    public Vetor getAC() {
-    	return AC;
+    priate Vetor getAC() {
+    	return new Vetor(AC);
     }
 
-    public Vetor getBC() {
-    	return AC.subtrair(AB);
+    priate Vetor getBC() {
+    	return new Vetor(AC.subtrair(AB));
     }
 
     @Override
