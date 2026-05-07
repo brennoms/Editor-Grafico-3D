@@ -31,7 +31,7 @@ public class Triangulo {
     // METODOS IMUTÁVEIS
     // =========================
 
-    public boolean pontoNoTriangulo(Ponto P) {
+    public boolean contem(Ponto P) {
     	// usa coordenadas baricêntricas
 	    final double EPS = 1e-9;
 

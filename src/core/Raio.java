@@ -37,6 +37,7 @@ public class Raio {
 	}
 
 	public boolean intersepta(Triangulo triangulo) {
+		// Möller–Trumbore ray-triangle intersection algorithm
 	    final double EPS = 1e-9;
 
 	    Ponto origem = pontoInicial;
