@@ -13,6 +13,10 @@ public class Raio {
 		this.pontoInicial = new Ponto(x, y, z);
 		this.vetor = vetor;
 	}
+	public Raio(Raio raio) {
+		this.pontoInicial = new Ponto(pontoInicial);
+		this.vetor = new Vetor(vetor);
+	}
 
 
 	// =========================

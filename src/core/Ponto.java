@@ -7,10 +7,17 @@ public class Ponto {
     public Ponto(double x, double y, double z) {
         this.coordenadas = new double[]{x, y, z};
     }
+    public Ponto(Ponto ponto) {
+        this.coordenadas = new double[]{
+            ponto.getX(),
+            ponto.getY(),
+            ponto.getZ()
+        };
+    }
 
-    public double getX() { return coordenadas[0]; }
-    public double getY() { return coordenadas[1]; }
-    public double getZ() { return coordenadas[2]; }
+    private double getX() { return coordenadas[0]; }
+    private double getY() { return coordenadas[1]; }
+    private double getZ() { return coordenadas[2]; }
 
 
     // =========================

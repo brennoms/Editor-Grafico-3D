@@ -21,6 +21,11 @@ public class Triangulo {
 		this.AB = new Vetor(A, new Ponto(0, y, 0));
 		this.AC = new Vetor(A, new Ponto(0, 0, z));
 	}
+	public Triangulo(Triangulo Triangulo) {
+		this.A = new Ponto(triangulo.A);
+		this.AB = new Vetor(triangulo.AB);
+		this.AC = new Vetor(triangulo.AC);
+	}
 
 	// =========================
     // METODOS IMUTÁVEIS
@@ -52,27 +57,27 @@ public class Triangulo {
 		return AB.produtoVetorial(AC);
 	}
 
-	priate Ponto getA() {
+	private Ponto getA() {
 		return A;
 	}
 
-    priate Ponto getB() {
+    private Ponto getB() {
     	return A.somar(AB);
     }
 
-    priate Ponto getC() {
+    private Ponto getC() {
     	return A.somar(AC);
     }
 
-    priate Vetor getAB() {
+    private Vetor getAB() {
     	return new Vetor(AB);
     }
 
-    priate Vetor getAC() {
+    private Vetor getAC() {
     	return new Vetor(AC);
     }
 
-    priate Vetor getBC() {
+    private Vetor getBC() {
     	return new Vetor(AC.subtrair(AB));
     }
 
