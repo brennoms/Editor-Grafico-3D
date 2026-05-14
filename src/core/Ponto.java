@@ -15,9 +15,9 @@ public class Ponto {
         };
     }
 
-    private double getX() { return coordenadas[0]; }
-    private double getY() { return coordenadas[1]; }
-    private double getZ() { return coordenadas[2]; }
+    public double getX() { return coordenadas[0]; }
+    public double getY() { return coordenadas[1]; }
+    public double getZ() { return coordenadas[2]; }
 
 
     // =========================

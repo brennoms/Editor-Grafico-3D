@@ -57,27 +57,27 @@ public class Triangulo {
 		return AB.produtoVetorial(AC);
 	}
 
-	private Ponto getA() {
+	public Ponto getA() {
 		return A;
 	}
 
-    private Ponto getB() {
+    public Ponto getB() {
     	return A.somar(AB);
     }
 
-    private Ponto getC() {
+    public Ponto getC() {
     	return A.somar(AC);
     }
 
-    private Vetor getAB() {
+    public Vetor getAB() {
     	return new Vetor(AB);
     }
 
-    private Vetor getAC() {
+    public Vetor getAC() {
     	return new Vetor(AC);
     }
 
-    private Vetor getBC() {
+    public Vetor getBC() {
     	return new Vetor(AC.subtrair(AB));
     }
 

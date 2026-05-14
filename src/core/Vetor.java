@@ -32,9 +32,9 @@ public class Vetor {
         };
     }
 
-    private double getX() { return componentes[0]; }
-    private double getY() { return componentes[1]; }
-    private double getZ() { return componentes[2]; }
+    public double getX() { return componentes[0]; }
+    public double getY() { return componentes[1]; }
+    public double getZ() { return componentes[2]; }
 
 
     // =========================
