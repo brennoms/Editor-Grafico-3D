@@ -11,7 +11,7 @@ public class Plano {
 	}
 	public Plano (Plano plano) {
 		this.pontoPlano = new Ponto(plano.pontoPlano);
-		this.vetorNormal = new vetorNormal(plano.vetorNormal);
+		this.vetorNormal = new Vetor(plano.vetorNormal);
 	}
 
 
