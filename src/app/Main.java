@@ -18,6 +18,10 @@ public class Main {
 		System.out.println(triangulo);
 		System.out.println("P(t)" + (raio.intersepta(triangulo) ? " ":" não ") + "intersepta" + "\n");
 
+		Plano plano = new Plano(new Ponto(0, 0, 10), new Vetor(0, 0, 1));
+		System.out.println(plano);
+		System.out.println("P(t)" + (raio.intersepta(plano) ? " ":" não ") + "intersepta" + "\n");
+
 	}
 
 }

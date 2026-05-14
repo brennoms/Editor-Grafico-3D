@@ -24,4 +24,13 @@ public class Plano {
 		return vetorNormal.isOrtogonal(pontoPlano_ponto);
 	}
 
+	@Override
+	public String toString() {
+		return String.format(
+				"PLano:\n %s\n %s\n",
+				pontoPlano.toString(),
+				vetorNormal.toString()
+		);
+	}
+
 }
