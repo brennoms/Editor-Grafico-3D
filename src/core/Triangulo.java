@@ -21,7 +21,7 @@ public class Triangulo {
 		this.AB = new Vetor(A, new Ponto(0, y, 0));
 		this.AC = new Vetor(A, new Ponto(0, 0, z));
 	}
-	public Triangulo(Triangulo Triangulo) {
+	public Triangulo(Triangulo triangulo) {
 		this.A = new Ponto(triangulo.A);
 		this.AB = new Vetor(triangulo.AB);
 		this.AC = new Vetor(triangulo.AC);
