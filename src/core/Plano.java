@@ -9,10 +9,6 @@ public class Plano {
 		this.pontoPlano = pontoPlano;
 		this.vetorNormal = vetorNormal;
 	}
-	public Plano (Triangulo triangulo) {
-		this.pontoPlano = triangulo.getA();
-		this.vetorNormal = triangulo.ortogonal();
-	}
 	public Plano (Plano plano) {
 		this.pontoPlano = new Ponto(plano.pontoPlano);
 		this.vetorNormal = new vetorNormal(plano.vetorNormal);
