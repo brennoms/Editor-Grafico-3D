@@ -14,10 +14,17 @@ public class Plano {
 		this.vetorNormal = new Vetor(plano.vetorNormal);
 	}
 
-
 	// =========================
     // METODOS IMUTÁVEIS
     // =========================
+
+	public Vetor getVetorNormal() {
+		return vetorNormal;
+	}
+
+	public Ponto getPontoPlano() {
+		return pontoPlano;
+	}
 
 	public boolean contem(Ponto ponto) {
 		Vetor pontoPlano_ponto = ponto.subtrair(pontoPlano);

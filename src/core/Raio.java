@@ -23,7 +23,6 @@ public class Raio {
     // METODOS IMUTÁVEIS
     // =========================
 
-
 	public boolean intersepta(Ponto p) {
     	Vetor AP = p.subtrair(pontoInicial);
 
@@ -74,6 +73,43 @@ public class Raio {
 	    return t > EPS;
 	}
 
+	public Ponto interseptacao(Plano plano) {
+		final double EPS = 1e-9;
+		//P + tV; ax + by + cz + d ; d = -(ax1 + by1 + cz1)
+
+		double x = pontoInicial.getX();
+		double y = pontoInicial.getY();
+		double z = pontoInicial.getZ();
+		double a_ = vetor.getX();
+		double b_ = vetor.getY();
+		double c_ = vetor.getZ();
+
+		Vetor vetorNormalPlano = plano.getVetorNormal();
+		double a = vetorNormalPlano.getX();
+		double b = vetorNormalPlano.getY();
+		double c = vetorNormalPlano.getZ();
+
+		Ponto pontoPlano = plano.getPontoPlano();
+		double x2 = pontoPlano.getX();
+		double y2 = pontoPlano.getY();
+		double z2 = pontoPlano.getZ();
+
+		// a(x+t*a_) + b(y+t*b_) + c(z+t*c_) - a*x2 - b*y2 - c*z2 = 0
+		// a*x + a*t*a_ + b*y + b*t*b_ + c*z + c*t*c_ = a*x2 + b*y2 + c*z2
+		// t(a * a_ + b*b_ + c*c_) = a*x2 + b*y2 + c*z2 - a*x - b*y - c*z
+		// t = (a*x2 + b*y2 + c*z2 - a*x - b*y - c*z) / (a * a_ + b*b_ + c*c_)
+
+		double denominador = a * a_ + b*b_ + c*c_;
+		double t = (a*x2 + b*y2 + c*z2 - a*x - b*y - c*z) / denominador;
+
+		if (Math.abs(denominador) < EPS) return null;
+
+		return pontoEm(t);
+	}
+	public boolean intersepta(Plano plano) {
+		return this.interseptacao(plano) != null;
+	}
+
 	public Ponto pontoEm(double t) {
     	return pontoInicial.somar(vetor.multiplicar(t));
 	}
@@ -81,7 +117,7 @@ public class Raio {
 	@Override
     public String toString() {
         return String.format(
-        	"P(t) = %s + t %s",
+        	"Raio: P(t) = %s + t %s",
         	pontoInicial.toString().replace("Ponto", ""),
         	vetor.toString().replace("Vetor", "")
         );
