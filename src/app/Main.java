@@ -1,6 +1,6 @@
 package app;
 
-import core.*;
+import algebraEgeometria.*;
 
 public class Main {
 
