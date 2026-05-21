@@ -16,11 +16,6 @@ public class Triangulo {
 		this.AB = new Vetor(A, B);
 		this.AC = new Vetor(A, C);
 	}
-	public Triangulo(double x, double y, double z) {
-		this.A = new Ponto(x, 0, 0);
-		this.AB = new Vetor(A, new Ponto(0, y, 0));
-		this.AC = new Vetor(A, new Ponto(0, 0, z));
-	}
 	public Triangulo(Triangulo triangulo) {
 		this.A = new Ponto(triangulo.A);
 		this.AB = new Vetor(triangulo.AB);
