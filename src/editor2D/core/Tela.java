@@ -29,24 +29,14 @@ public class Tela extends JPanel implements Runnable {
     }
 
     private BufferedImage criarBuffer() {
-
-        return new BufferedImage(
-                largura,
-                altura,
-                BufferedImage.TYPE_INT_ARGB
-        );
+        return new BufferedImage(largura, altura, BufferedImage.TYPE_INT_ARGB);
     }
 
     private int[] getPixels(BufferedImage img) {
-
-        return ((DataBufferInt)
-                img.getRaster()
-                        .getDataBuffer())
-                .getData();
+        return ((DataBufferInt) img.getRaster().getDataBuffer()).getData();
     }
 
     private void renderizar() {
-
         // desenha no back buffer
         for (int y = 0; y < altura; y++) {
 
@@ -56,11 +46,7 @@ public class Tela extends JPanel implements Runnable {
                 int g = y % 256;
                 int b = 100;
 
-                int cor =
-                        (255 << 24) |
-                                (r << 16) |
-                                (g << 8) |
-                                b;
+                int cor = (255 << 24) | (r << 16) | (g << 8) | b;
 
                 pixels[y * largura + x] = cor;
             }
